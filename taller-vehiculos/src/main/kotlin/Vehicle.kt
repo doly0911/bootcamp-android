@@ -1,8 +1,8 @@
 
 
 open class Vehicle () {
-    val brand: String = ""
-    val color: String = ""
+    var brand: String = ""
+    var color: String = ""
 
 
     fun accelerate() {

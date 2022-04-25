@@ -1,7 +1,7 @@
 
 class ConventionalCar:Vehicle() {
-    val engineName:String = ""
-    val yearEngine:Int=2000
+    var engineProvider:String = ""
+    var yearEngine:Int=2000
 
     override fun stop() {
         println("Frenando carro convencional...")
