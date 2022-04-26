@@ -1,28 +1,35 @@
 fun main(args: Array<String>) {
-    val serviceCalculatorCreator : IServiceCalculatorCreator = ServiceCalculatorCreator();
+    val serviceCalculatorCreator  = ServiceCalculatorCreator()
+    val garageInventory : IGarageInventory = GarageInventory(serviceCalculatorCreator)
+    var vehicles : Map<Vehicle,Int> = HashMap()
+
+    //instanciamos un Objeto de la clase ConventionalCar
     val conventionalCar = ConventionalCar()
     conventionalCar.color= "blanco";
     conventionalCar.brand= "toyota"
     conventionalCar.engineProvider= "CaterPillar"
     conventionalCar.yearEngine= 2000;
+    //conventionalCar.accelerate()
 
-    println("--LLEGA UN CARRO CONVENCIONAL--")
-    println("color: ${conventionalCar.color}")
-    println("marca: ${conventionalCar.brand}")
-    println("Fabricante del motor: ${conventionalCar.engineProvider}")
-    println("Año fabricación del motor: ${conventionalCar.yearEngine}")
+    val conventionalCar2 = ConventionalCar()
+    conventionalCar2.color= "rojo";
+    conventionalCar2.brand= "ford"
+    conventionalCar2.engineProvider= "CaterPillar"
+    conventionalCar2.yearEngine= 2010;
 
     val electricCar = ElectricCar()
     electricCar.color= "azul";
-    electricCar.brand= "toyota"
-    printDays(electricCar,ServiceEnum.REVIEW,serviceCalculatorCreator);
-    printDays(electricCar,ServiceEnum.PAINTING,serviceCalculatorCreator);
-    printDays(conventionalCar,ServiceEnum.PAINTING,serviceCalculatorCreator);
-    printDays(conventionalCar,ServiceEnum.REVIEW,serviceCalculatorCreator);
+    electricCar.brand= "renault"
+    //electricCar.accelerate()
 
-}
+    //Agregamos vehiculos al taller
+    vehicles = garageInventory.addVehicleToGarage(conventionalCar, ServiceEnum.PAINTING, vehicles)
+    vehicles = garageInventory.addVehicleToGarage(conventionalCar2, ServiceEnum.REVIEW, vehicles)
+    vehicles = garageInventory.addVehicleToGarage(electricCar, ServiceEnum.REVIEW, vehicles)
 
-fun printDays(v : Vehicle, s : ServiceEnum, creator : IServiceCalculatorCreator){
-    val serviceCalculator = creator.getServiceCalculator(v,s);
-    println("Se demora ${serviceCalculator.calculate(v)} ")
+    val conventionalCarWithLowestServiceTime = garageInventory.getConventionalCarWithLowestServiceTime(vehicles)
+    println("El carro con menor tiempo de servicio es ${conventionalCarWithLowestServiceTime.brand} " +
+            "con color ${conventionalCarWithLowestServiceTime.color}")
+
+
 }

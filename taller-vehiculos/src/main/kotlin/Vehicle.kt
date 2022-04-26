@@ -1,11 +1,16 @@
-
-
 open class Vehicle () {
-    var brand: String = ""
+   var brand: String = ""
+        get() = field.uppercase()
+        set(value) {
+            if (value.isEmpty()){
+                println("Marca del carro esta vacía")
+            } else
+                field = value
+        }
     var color: String = ""
 
 
-    fun accelerate() {
+    open fun accelerate() {
         println("Estoy acelarando...")
     }
 
@@ -17,7 +22,7 @@ open class Vehicle () {
         println("Estoy moviéndome hacia atrás...")
     }
 
-    open fun stop(){
+    fun stop(){
         println("Estoy frenando...")
     }
 
