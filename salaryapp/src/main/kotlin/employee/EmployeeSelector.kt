@@ -1,12 +1,15 @@
 package employee
 
 class EmployeeSelector:IEmployeeSelector {
-    override fun selectEmployee(role: Int): Employee {
-        return when(role){
-            1 -> Manager()
-            2 -> Operator()
-            3 -> Accountant()
-            else -> throw error("Invalid role")
+    override fun selectEmployee(role: Int): Employee? {
+        return try {
+            when(Role.values()[role-1]){
+                Role.MANAGER -> Manager()
+                Role.OPERATOR -> Operator()
+                Role.ACCOUNTANT -> Accountant()
+            }
+        } catch ( e: ArrayIndexOutOfBoundsException){
+            null
         }
     }
 }
