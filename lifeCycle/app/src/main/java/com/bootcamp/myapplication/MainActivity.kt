@@ -9,37 +9,37 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       Log.i("Main Activity", "onCreate")
+        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStart() {
         super.onStart()
-        Log.i("Main Activity", "onStart")
+        Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("Main Activity", "onResume")
+        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("Main Activity", "onPause")
+        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i("Main Activity", "onRestart")
+        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("Main Activity", "onStop")
+        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("Main Activity", "onDestroy")
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
     }
 
 }
