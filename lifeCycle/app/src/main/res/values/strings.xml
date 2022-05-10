@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+
     <!--Main Activity labels-->
     <string name="play_audio">Reproducir Audio</string>
     <string name="next_activity">Siguiente Actividad</string>
+
+    <!--Good Bye Activity labels-->
+    <string name="title_googbye_activity"> Bienvenid@ a la nueva Actividad!</string>
 </resources>

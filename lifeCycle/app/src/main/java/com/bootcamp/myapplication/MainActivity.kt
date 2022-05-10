@@ -14,33 +14,29 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     private lateinit var mService: MyService
     private var mBound: Boolean = false
-    private lateinit var btn: Button
+    private lateinit var btn_play_audio: Button
+    private lateinit var btn_next_page: Button
 
-    private val connection = object : ServiceConnection {
-
-        override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            // We've bound to MyService, cast the IBinder and get MyService instance
-            val binder = service as MyService.MyServiceBinder
-            mService = binder.getService()
-            mBound = true
-        }
-
-        override fun onServiceDisconnected(arg0: ComponentName) {
-            mBound = false
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn = findViewById(R.id.btn_play_audio)
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
 
-        btn.setOnClickListener {
+        btn_play_audio = findViewById(R.id.btn_play_audio)
+        btn_next_page = findViewById(R.id.btn_next_page)
+
+
+        btn_play_audio.setOnClickListener {
             if (mBound) {
                 // Call a method from the MyService.
                mService.playAudio()
             }
+        }
+
+        btn_next_page.setOnClickListener {
+            val intent = Intent(this, GoodByeActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -79,6 +75,20 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
+    }
+
+    private val connection = object : ServiceConnection {
+
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            // We've bound to MyService, cast the IBinder and get MyService instance
+            val binder = service as MyService.MyServiceBinder
+            mService = binder.getService()
+            mBound = true
+        }
+
+        override fun onServiceDisconnected(arg0: ComponentName) {
+            mBound = false
+        }
     }
 
 }
