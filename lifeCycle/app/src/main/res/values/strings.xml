@@ -7,4 +7,5 @@
 
     <!--Good Bye Activity labels-->
     <string name="title_googbye_activity"> Bienvenid@ a la nueva Actividad!</string>
+    <string name="txt_increase">Incrementar</string>
 </resources>
