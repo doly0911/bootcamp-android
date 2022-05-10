@@ -7,41 +7,26 @@
     tools:context=".GoodByeActivity">
 
     <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="328dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="76dp"
-        android:text="@string/title_googbye_activity"
-        android:textSize="18dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.633"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/increasedNumber"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/audio_name"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_increase"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_play_audio"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_increase"
-        android:layout_width="164dp"
-        android:layout_height="43dp"
-        android:layout_below="@+id/increasedNumber"
-        android:layout_alignStart="@+id/txt_title"
-        android:layout_alignEnd="@+id/txt_title"
-        android:onClick="increase"
-        android:text="@string/txt_increase"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:text= "@string/play_audio"
+        android:id="@+id/btn_play_audio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_title" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

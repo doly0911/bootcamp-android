@@ -6,6 +6,7 @@
     <string name="next_activity">Siguiente Actividad</string>
 
     <!--Good Bye Activity labels-->
-    <string name="title_googbye_activity"> Bienvenid@ a la nueva Actividad!</string>
+    <string name="title_googbye_activity"> Ciclo de Vida de la Actividad</string>
     <string name="txt_increase">Incrementar</string>
+    <string name="audio_name">Mario Bros</string>
 </resources>

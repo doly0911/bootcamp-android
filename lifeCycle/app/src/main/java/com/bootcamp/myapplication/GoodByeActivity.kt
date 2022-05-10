@@ -1,49 +1,54 @@
 package com.bootcamp.myapplication
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
+import android.os.IBinder
+import android.widget.Button
 import android.widget.Toast
 
 class GoodByeActivity : AppCompatActivity() {
-    private lateinit var txtNum: TextView
-    private var num : Int = 0
+    private lateinit var mService: MyService
+    private var mBound: Boolean = false
+    private lateinit var btnPlayAudio: Button
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
         setContentView(R.layout.activity_good_bye)
-        txtNum = findViewById(R.id.increasedNumber)
-        num = 0
+        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
+
+        btnPlayAudio = findViewById(R.id.btn_play_audio)
+        btnPlayAudio.setOnClickListener {
+            if (mBound) {
+                // Call a method from the MyService.
+                mService.playAudio()
+            }
+        }
     }
 
     override fun onStart() {
         super.onStart()
         Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show()
 
+        // Bind to MyService
+        Intent(this, MyService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
     }
 
     override fun onResume() {
-        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
         super.onResume()
-
+        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
     }
 
     override fun onPause() {
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
         super.onPause()
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onRestart() {
@@ -51,8 +56,30 @@ class GoodByeActivity : AppCompatActivity() {
         Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show()
     }
 
-    fun increase(view: View) {
-        num++
-        txtNum.text = num.toString()
+    override fun onStop() {
+        super.onStop()
+        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show()
+        unbindService(connection)
+        mBound = false
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
+    }
+
+    private val connection = object : ServiceConnection {
+
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            // We've bound to MyService, cast the IBinder and get MyService instance
+            val binder = service as MyService.MyServiceBinder
+            mService = binder.getService()
+            mBound = true
+        }
+
+        override fun onServiceDisconnected(arg0: ComponentName) {
+            mBound = false
+        }
+    }
+
 }

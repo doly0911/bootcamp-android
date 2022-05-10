@@ -1,40 +1,27 @@
 package com.bootcamp.myapplication
 
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Bundle
-import android.os.IBinder
+import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var mService: MyService
-    private var mBound: Boolean = false
-    private lateinit var btn_play_audio: Button
-    private lateinit var btn_next_page: Button
-
+    private lateinit var btnNextPage: Button
+    private var num : Int = 0
+    lateinit var numberTxt: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
+        setContentView(R.layout.activity_main)
+        numberTxt = findViewById(R.id.txtNumber)
+        btnNextPage = findViewById(R.id.btn_next_page)
 
-        btn_play_audio = findViewById(R.id.btn_play_audio)
-        btn_next_page = findViewById(R.id.btn_next_page)
-
-
-        btn_play_audio.setOnClickListener {
-            if (mBound) {
-                // Call a method from the MyService.
-               mService.playAudio()
-            }
-        }
-
-        btn_next_page.setOnClickListener {
+        btnNextPage.setOnClickListener {
             val intent = Intent(this, GoodByeActivity::class.java)
             startActivity(intent)
         }
@@ -44,32 +31,23 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show()
 
-        // Bind to MyService
-        Intent(this, MyService::class.java).also { intent ->
-            bindService(intent, connection, Context.BIND_AUTO_CREATE)
-        }
     }
 
     override fun onResume() {
-        super.onResume()
         Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
+        super.onResume()
+
     }
 
     override fun onPause() {
-        super.onPause()
         Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
-    }
+        super.onPause()
 
-    override fun onRestart() {
-        super.onRestart()
-        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
         Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show()
-        unbindService(connection)
-        mBound = false
     }
 
     override fun onDestroy() {
@@ -77,18 +55,14 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
     }
 
-    private val connection = object : ServiceConnection {
-
-        override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            // We've bound to MyService, cast the IBinder and get MyService instance
-            val binder = service as MyService.MyServiceBinder
-            mService = binder.getService()
-            mBound = true
-        }
-
-        override fun onServiceDisconnected(arg0: ComponentName) {
-            mBound = false
-        }
+    override fun onRestart() {
+        super.onRestart()
+        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show()
     }
 
+    fun increase(view: View) {
+        num++
+        numberTxt.text = num.toString()
+      //  txtNum.text = num.toString()
+    }
 }
