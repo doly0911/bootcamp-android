@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".RegisterUserActivity">
+
+
+    <TextView
+        android:id="@+id/txtTitleRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro Usuario"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitleRegister"
+        android:layout_marginRight="10dp"
+        android:hint="nombre" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_name"
+        android:layout_marginRight="10dp"
+        android:hint="Correo" />
+
+    <EditText
+        android:id="@+id/input_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_email"
+        android:layout_marginRight="10dp"
+        android:hint="nickname" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_userName"
+        android:layout_marginRight="10dp"
+        android:hint="Contraseña" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutButtonsRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/inputPassword"
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btnAceptar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Aceptar"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|center"
+            />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|center"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
