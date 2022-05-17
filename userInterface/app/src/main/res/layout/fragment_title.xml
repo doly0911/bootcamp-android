@@ -8,24 +8,21 @@
     tools:context=".TitleFragment"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/hello_blank_fragment" />
-
     <ImageView
         android:id="@+id/imgSaludar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="313dp"
+        android:layout_height="286dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/imagen_hello"/>
+        android:layout_marginTop="@dimen/space"
+        android:layout_gravity="center"
+        android:src="@drawable/imagen_hello" />
 
     <Button
         android:id="@+id/btnEmpezar"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="Empezar" />
+        android:layout_marginTop="@dimen/space"
+        android:text="@string/btn_empezar" />
 
 </LinearLayout>

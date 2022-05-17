@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_main">27sp</dimen>
+    <dimen name="margen_main">16dp</dimen>
+    <dimen name="space">20dp</dimen>
+    <dimen name="content">16sp</dimen>
+    <dimen name="text_radioButton">14sp</dimen>
+</resources>

@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UserInterface">
         <activity android:name=".TaskActivity"></activity>
-        <activity android:name=".RegisterUserActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegisterUserActivity"/>
+        <activity android:name=".MainActivity"  android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

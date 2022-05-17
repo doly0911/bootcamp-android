@@ -1,5 +1,33 @@
 <resources>
-    <string name="app_name">User Interface</string>
+    <string name="app_name">My App</string>
 
-    <string name="hello_blank_fragment">Bootcamp Android</string>
+    <!--Main Activity-->
+    <string name="bienvenidos">Bienvenidos</string>
+    <string name="input_ingresarUsuario">Ingresa Usuario</string>
+    <string name="Input_ingresaContra">Ingresa Contraseña</string>
+    <string name="btn_main">Ingresar</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="registrarse">Registrarse</string>
+
+    <!--Register Activity-->
+    <string name="title_registroUsuario">Registro Usuario</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_contra">Contraseña</string>
+    <string name="btn_aceptar_registro">Aceptar</string>
+    <string name="btn_cancelar_registro">Cancelar</string>
+
+    <!--Inicio Fragment-->
+    <string name="title_inicioFragment">Bootcamp Android</string>
+    <string name="btn_empezar">Empezar</string>
+
+    <!--Question 1 Fragment-->
+    <string name="pregunta1">Quién es el autor de la frase \"Pienso, luego existo\"?</string>
+    <string name="rta_platon">Platón</string>
+    <string name="rta_galileo">Galileo</string>
+    <string name="rta_descartes">Descartes</string>
+    <string name="rta_socrates">Sócrates</string>
+    <string name="btn_enviar_pregunta1">Enviar</string>
+
+
 </resources>

@@ -4,46 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionFragment">
+    tools:context=".QuestionFragment"
+    android:layout_margin="10dp"
+    >
 
     <ImageView
         android:id="@+id/img_estudiando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="258dp"
+        android:layout_height="253dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/img_estudiando" />
 
     <RadioGroup
+        android:paddingTop="10dp"
         android:id="@+id/rg_question"
         android:layout_below="@id/img_estudiando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿Quién es e autor de la frase -Pienso, luego existo-" />
+            android:textSize="@dimen/content"
+            android:textAlignment="center"
+            android:text="@string/pregunta1" />
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Platón"
+            android:textSize="@dimen/text_radioButton"
+            android:text="@string/rta_platon"
             />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Galileo"/>
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descartes"/>
+            android:textSize="@dimen/text_radioButton"
+            android:text="@string/rta_galileo"/>
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sócrates"/>
+            android:textSize="@dimen/text_radioButton"
+            android:text="@string/rta_descartes"/>
     </RadioGroup>
 
     <Button
@@ -52,7 +57,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enviar"/>
+        android:text="@string/btn_enviar_pregunta1"/>
 
 
 </RelativeLayout>

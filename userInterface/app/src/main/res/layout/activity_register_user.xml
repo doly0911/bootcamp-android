@@ -12,11 +12,12 @@
         android:id="@+id/txtTitleRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registro Usuario"
+        android:text="@string/title_registroUsuario"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:textSize="20sp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/input_name"
@@ -24,15 +25,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtTitleRegister"
         android:layout_marginRight="10dp"
-        android:hint="nombre" />
+        android:backgroundTint="@color/purple_500"
+        android:hint="@string/hint_nombre" />
 
     <EditText
         android:id="@+id/input_email"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/input_name"
         android:layout_marginRight="10dp"
-        android:hint="Correo" />
+        android:hint="@string/hint_correo" />
 
     <EditText
         android:id="@+id/input_userName"
@@ -40,7 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/input_email"
         android:layout_marginRight="10dp"
-        android:hint="nickname" />
+        android:hint="nickname"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/inputPassword"
@@ -48,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/input_userName"
         android:layout_marginRight="10dp"
-        android:hint="Contraseña" />
+        android:inputType="textPassword"
+        android:hint="@string/hint_contra" />
 
     <LinearLayout
         android:id="@+id/linearLayoutButtonsRegister"
@@ -56,25 +61,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/inputPassword"
-        android:layout_marginTop="20dp"
-        android:padding="10dp">
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/btnAceptar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Aceptar"
+            android:text="@string/btn_aceptar_registro"
             android:layout_weight="1"
-            android:layout_gravity="bottom|center"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             />
 
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
+            android:text="@string/btn_cancelar_registro"
             android:layout_weight="1"
-            android:layout_gravity="bottom|center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             />
 
     </LinearLayout>
