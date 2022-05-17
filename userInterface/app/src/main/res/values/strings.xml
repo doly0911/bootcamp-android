@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">User Interface</string>
+
+    <string name="hello_blank_fragment">Bootcamp Android</string>
 </resources>

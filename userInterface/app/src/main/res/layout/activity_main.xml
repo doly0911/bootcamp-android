@@ -50,7 +50,7 @@
 
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/btn_ingresar"
             style="@style/custom_button"
             android:layout_width="99dp"
             android:layout_height="33dp"
